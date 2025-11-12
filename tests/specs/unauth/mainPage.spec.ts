@@ -12,3 +12,11 @@ test('Проверка доступности табов категорий', as
 test('Проверка доступности элементов бокового меню', async ({ mainPage }) => {
   await mainPage.menuHasCorrectAriaSnapshot();
 });
+test('Проверка доступности элементов списка добавления контента', async ({ mainPage }) => {
+  await mainPage.openAddPopupList();
+  await mainPage.addPopupListHasCorrectAriaSnapshot();
+});
+test('Проверка доступности элементов popup уведомлений', async ({ mainPage }) => {
+  await mainPage.openNotificationPopupList();
+  await mainPage.notificationPopupHasCorrectAriaSnapshot();
+});
