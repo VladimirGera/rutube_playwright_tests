@@ -37,6 +37,7 @@ export class MainPage extends BasePage {
     });
   }
 
+  //actions
   async open() {
     await this.page.goto('https://rutube.ru/');
   }
@@ -49,20 +50,6 @@ export class MainPage extends BasePage {
     await this.changeThemeButtonLocator.click();
   }
 
-  async headerHasCorrectAriaSnapshot() {
-    await expect(this.headerLocator).toMatchAriaSnapshot({ name: 'headerAriaSnapshot.yml' });
-  }
-
-  async categoriesTabsHasCorrectAriaSnapshot() {
-    await expect(this.categoriesTabsLocator).toMatchAriaSnapshot({
-      name: 'categoriesTabsSnapshot.yml',
-    });
-  }
-
-  async menuHasCorrectAriaSnapshot() {
-    await expect(this.menuLocator).toMatchAriaSnapshot({ name: 'menuSnapshot.yml' });
-  }
-
   async openAddPopupList() {
     await this.headerAddButtonLocator.click();
   }
@@ -71,22 +58,29 @@ export class MainPage extends BasePage {
     await this.headerNotificationButtonLocator.click();
   }
 
+  //assertions
+  async headerHasCorrectAriaSnapshot() {
+    await this.checkAriaSnapshot(this.headerLocator, 'headerAriaSnapshot.yml');
+  }
+
+  async categoriesTabsHasCorrectAriaSnapshot() {
+    await this.checkAriaSnapshot(this.categoriesTabsLocator, 'categoriesTabsSnapshot.yml');
+  }
+
+  async menuHasCorrectAriaSnapshot() {
+    await this.checkAriaSnapshot(this.menuLocator, 'menuSnapshot.yml');
+  }
+
   async addPopupListHasCorrectAriaSnapshot() {
-    await expect(this.headerAddButtonPopupListLocator).toMatchAriaSnapshot({
-      name: 'addButtonPopupList.yml',
-    });
+    await this.checkAriaSnapshot(this.headerAddButtonPopupListLocator, 'addButtonPopupList.yml');
   }
 
   async notificationPopupHasCorrectAriaSnapshot() {
-    await expect(this.headerNotificationPopupLocator).toMatchAriaSnapshot({
-      name: 'notificationPopup.yml',
-    });
+    await this.checkAriaSnapshot(this.headerNotificationPopupLocator, 'notificationPopup.yml');
   }
 
   async fullMenuHasCorrectAriaSnapshot() {
-    await expect(this.openMenuAriaLocator).toMatchAriaSnapshot({
-      name: 'fullMenuSnapshot.yml',
-    });
+    await this.checkAriaSnapshot(this.openMenuAriaLocator, 'fullMenuSnapshot.yml');
   }
 
   async checkThemeAttributeValue(value: 'dark2021' | 'white2022') {

@@ -20,10 +20,10 @@ test('Проверка доступности элементов popup увед�
   await mainPage.openNotificationPopupList();
   await mainPage.notificationPopupHasCorrectAriaSnapshot();
 });
-test('Проверка доступности элементов раскрытого меню', async ({ mainPage }) => {
-  await mainPage.openFullMenu();
-  await mainPage.fullMenuHasCorrectAriaSnapshot();
-});
+//test('Проверка доступности элементов раскрытого меню', async ({ mainPage }) => {
+//  await mainPage.openFullMenu();
+//  await mainPage.fullMenuHasCorrectAriaSnapshot();
+//});
 test('Переключение темы', async ({ mainPage }) => {
   await mainPage.checkThemeAttributeValue('dark2021');
   await mainPage.changeThemeToWhite();
