@@ -16,13 +16,13 @@ export class BasePage {
   }
 
   async closeMainPageBanner() {
-    if (this.mainPageBanner) {
+    if (await this.mainPageBanner.isVisible().catch(() => false)) {
       await this.closerMainPageBanner.click();
     }
   }
 
   async closeBannerVPN() {
-    if (this.bannerVPN) {
+    if (await this.bannerVPN.isVisible().catch(() => false)) {
       await this.closerBannerVPN.click();
     }
   }
